@@ -1,0 +1,40 @@
+{
+  "name": "my-first-next",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint",
+    "hash-admin-password": "node scripts/hash-admin-password.cjs",
+    "postinstall": "node -e \"const {execSync}=require('child_process');const m=+process.version.slice(1).split('.')[0];if(m>=20){execSync('prisma generate',{stdio:'inherit'});}else{console.warn('[postinstall] 已跳过 prisma generate：需要 Node 20+，当前为 '+process.version+'。请执行 nvm use 22 && pnpm exec prisma generate');}\""
+  },
+  "dependencies": {
+    "@prisma/adapter-mariadb": "^7.7.0",
+    "@prisma/client": "^7.7.0",
+    "bcryptjs": "^3.0.3",
+    "jose": "^6.2.2",
+    "mariadb": "^3.5.2",
+    "next": "16.2.3",
+    "prisma": "^7.7.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-markdown": "^10.1.0",
+		"remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/oxide-darwin-arm64": "4.2.2",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
